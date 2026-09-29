@@ -14,6 +14,8 @@ for distribution releases.
   and weekly full sweeps, with an opt-in live-network Task command. Pull-request
   checks include repeated URLs added on new lines; HTTPS requests connect only to
   vetted public addresses and warn rather than bypass configured proxies.
+  A new distribution version's unpublished compare and release-tag links in the
+  changelog are reported as notices only for unredirected 404s in PR checks.
 - Added offline inventory and opt-in live validation for actionable public
   container image tags in skill and eval examples, including implicit `latest`
   for untagged references. Docker Hub and gcr.io manifests are checked for
