@@ -39,6 +39,9 @@ for distribution releases.
   and bind-mounting dependency manifests (`package.json`, `go.mod`,
   `requirements.txt`) into install steps instead of `COPY`-ing them, for
   install commands that don't rewrite the manifest.
+- `docker-agent-config` and `docker-agent-run` routing notes describe evaluation
+  work by its sessions and `--baseline` regression gates; routing to
+  `docker-agent-deploy` is unchanged.
 
 ### Fixed
 
@@ -59,6 +62,14 @@ for distribution releases.
   inspect container IDs from `docker compose ps -q` with `docker inspect`.
 - Corrected the Compose healthcheck sidecar and project-structure examples to
   use published curl and Prometheus image tags.
+- Corrected `docker-build-strategies` SSH build guidance: examples list the
+  forwarded agent's keys with `ssh-add -l` instead of starting an agent with
+  `ssh-agent -s`, explain how to expose only the build's key, and note that
+  BuildKit rejects passphrase-protected key files passed with `--ssh`. The
+  `ssh-keyscan` note no longer claims the host key is pinned, the Alpine cache
+  citation moved to the layer-caching reference, and example Dockerfiles use a
+  placeholder OCI source label. The skill's evaluation runbook, deterministic
+  checks, and verification runbook now cover private Git access over SSH.
 
 ## [0.3.0] - 2026-09-23
 
